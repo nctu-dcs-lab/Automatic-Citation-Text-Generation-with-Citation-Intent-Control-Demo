@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Intent-Controllable Citation Text Generation Demo</title>
+  </head>
+  <header class="container-fluid p-2 bg-dark text-white">
+      <h3>NYCU DCS Lab</h3>  
+  </header>
+  <body>
+    <div class="container-fluid p-4 bg-primary text-white">
+      <h1>Intent-Controllable Citation Text Generation Demo</h1>
+    </div>
+    <div class="container ms-5 my-4" id="main-container">
+        {% block content %}
+        {% endblock %}
+    </div>
+  
+  </body>
+  {% block footer %}
+  {% endblock %}
+</html>

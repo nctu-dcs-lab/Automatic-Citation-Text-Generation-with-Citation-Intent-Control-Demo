@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('generate/', views.generate_citation_text, name='generate'),
+    path('result/', views.result, name='result'),
 ]

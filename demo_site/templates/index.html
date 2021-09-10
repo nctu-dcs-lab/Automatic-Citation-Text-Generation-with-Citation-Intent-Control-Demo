@@ -1,6 +1,6 @@
 {% extends "base.html" %}
   {% block content %}
-    <form action="generate/" id="subform" method="post">
+    <form action="result/" id="subform" method="post">
         {% csrf_token %}
         <label for="model_type">Type of the pretrained model:</label>
         <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
@@ -17,25 +17,30 @@
           <input type="radio" class="btn-check" name="citing_input_type" id="title" autocomplete="off" value="title">
           <label class="btn btn-outline-primary" for="title">Title</label>
         </div>
+        <br>
+        <label class="mt-5" for="citation_intent">Citation Intent:</label>
+        <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="citation_intent" id="background" autocomplete="off" value="background" checked>
+          <label class="btn btn-outline-primary" for="background">Background</label>
+          <input type="radio" class="btn-check" name="citation_intent" id="method" autocomplete="off" value="method">
+          <label class="btn btn-outline-primary" for="method">Method</label>
+          <input type="radio" class="btn-check" name="citation_intent" id="result" autocomplete="off" value="result">
+          <label class="btn btn-outline-primary" for="result">Result Comparison</label>
+        </div>
 
         <div class="form-group">
           <label class="mt-4 mb-2" for="citing_context">Enter a citing context:</label>
-          <textarea class="form-control" id="citing_context" name="citing_context" form="subform" rows="8" placeholder="Please enter a citing context"></textarea>
+          <textarea class="form-control" id="citing_context" name="citing_context" form="subform" rows="8" placeholder="Please enter a citing context" required></textarea>
         </div>
         <div class="form-group">
-          <label class="mt-4 mb-2" for="cited_context">Enter the abstract cited paper:</label>
-          <textarea class="form-control" id="cited_context" name="cited_context" form="subform" rows="8" placeholder="Please enter the abstract of the cited paper"></textarea>
+          <label class="mt-4 mb-2" for="cited_context">Enter the abstract of the cited paper:</label>
+          <textarea class="form-control" id="cited_context" name="cited_context" form="subform" rows="8" placeholder="Please enter the abstract of the cited paper" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary my-3" id="generate-btn">Generate Citation Text</button>
       </form>
+      
+</div>
   {% endblock %}
-  <script>
-      $("#generate-btn").click(function() {
-        $("#main-container").append(
-          '<p>Hello</p>'
-        );
-      });
-  </script>
   {% block footer %}
     <footer class="container-fluid p-5 bg-dark text-white text-center">
     &#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 

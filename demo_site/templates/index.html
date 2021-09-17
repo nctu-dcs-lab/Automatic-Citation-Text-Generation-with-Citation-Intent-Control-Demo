@@ -1,6 +1,6 @@
 {% extends "base.html" %}
   {% block content %}
-    <form action="result/" id="subform" method="post">
+    <form action="{% url 'result' %}" id="subform" method="post">
         {% csrf_token %}
         <label for="model_type">Type of the pretrained model:</label>
         <div class="btn-group mx-2" role="group" aria-label="Basic radio toggle button group">
@@ -29,8 +29,8 @@
         </div>
 
         <div class="form-group">
-          <label class="mt-4 mb-2" for="citing_context">Enter a citing context:</label>
-          <textarea class="form-control" id="citing_context" name="citing_context" form="subform" rows="8" placeholder="Please enter a citing context" required></textarea>
+          <label class="mt-4 mb-2" for="citing_context">Enter the abstract/title of the citing paper:</label>
+          <textarea class="form-control" id="citing_context" name="citing_context" form="subform" rows="8" placeholder="Please enter the abstract or title of the citing paper" required></textarea>
         </div>
         <div class="form-group">
           <label class="mt-4 mb-2" for="cited_context">Enter the abstract of the cited paper:</label>
@@ -43,7 +43,7 @@
   {% endblock %}
   {% block footer %}
     <footer class="container-fluid p-5 bg-dark text-white text-center">
-    &#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 
-     - ALL RIGHTS RESERVED.
+    <!-- &#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 
+     - ALL RIGHTS RESERVED. -->
     </footer>
   {% endblock %}

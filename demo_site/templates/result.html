@@ -1,13 +1,92 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="alert alert-primary" role="alert">
-        Output: {{citation_text}}
+    <div class="container mx-2">
+        <div class="alert alert-primary mb-5" role="alert">
+            Output: {{citation_text}}
+        </div>
+    
+        <div class="container border border-primary rounded p-0">
+            <div class="bg-primary text-white mb-4 p-3">
+                <h2>Feedback</h2>
+            </div>
+            <h4 class="p-3">Please give us your feedback for improving our system. Thanks!</h4>
+            <form class="p-3" id="feedback_form">
+                <fieldset class="form-group" form="feedback_form">
+                    <div class="row my-3">
+                        <legend class="col-form-label col-sm-4 pt-0">Quality of the generated citation text:</legend>
+                        <div class="col-sm-8">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_text_quality" id="very_bad_text" value="1">
+                                <label class="form-check-label" for="very_bad_text">
+                                    Very Bad
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_text_quality" id="bad_text" value="2">
+                                <label class="form-check-label" for="bad_text">
+                                    Bad
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_text_quality" id="normal_text" value="3">
+                                <label class="form-check-label" for="normal_text">
+                                    Normal
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_text_quality" id="good_text" value="4">
+                                <label class="form-check-label" for="very_badgood_text_text">
+                                    Good
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_text_quality" id="very_good_text" value="5">
+                                <label class="form-check-label" for="very_good_text">
+                                    Very Good
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <legend class="col-form-label col-sm-4 pt-0">Does the citation intent of the generated citation text satisfy your need? </legend>
+                        <div class="col-sm-8">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_intent_quality" id="satisfy" value="1">
+                                <label class="form-check-label" for="satisfy">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="citation_intent_quality" id="not_satisfy" value="0">
+                                <label class="form-check-label" for="not_satisfy">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <legend class="col-form-label col-sm-4 pt-0">Other comments:</legend>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="comment" name="comment" rows="8" placeholder="Please enter your comments."></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
     </div>
+    
 {% endblock %}
 {% block footer %}
-    <footer class="container-fluid fixed-bottom p-5 bg-dark text-white text-center">
-    &#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 
-     - ALL RIGHTS RESERVED.
+    <footer class="container-fluid p-5 bg-dark text-white text-center">
+    <!-- &#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 
+     - ALL RIGHTS RESERVED. -->
     </footer>
 {% endblock %}

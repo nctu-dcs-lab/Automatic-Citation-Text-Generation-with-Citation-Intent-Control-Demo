@@ -22,23 +22,29 @@ def result(request):
     citation_intent = request.POST.get("citation_intent")
     model_path = GeneratorConfig.PRETRAINED_MODELS_PATH
 
-    model_src = citing_context + " " + cited_context
-    model_src = " " + \
-        model_src.rstrip() if "t5" in model_type else model_src.rstrip()
-    model_src = f'@{citation_intent} {process_source_input(model_src)}'
+    # model_src = citing_context + " " + cited_context
+    # model_src = " " + \
+    #     model_src.rstrip() if "t5" in model_type else model_src.rstrip()
+    # model_src = f'@{citation_intent} {process_source_input(model_src)}'
 
-    pretrained_models_path = {
-        "bart-abstract": os.path.join(model_path, "bart-cctgm-abs.bin"),
-        "bart-title": os.path.join(model_path, "bart-cctgm-title.bin"),
-        "t5-abstract": os.path.join(model_path, "t5-cctgm-abs.bin"),
-        "t5-title": os.path.join(model_path, "t5-cctgm-title.bin"),
-    }
+    # pretrained_models_path = {
+    #     "bart-abstract": os.path.join(model_path, "bart-cctgm-abs.bin"),
+    #     "bart-title": os.path.join(model_path, "bart-cctgm-title.bin"),
+    #     "t5-abstract": os.path.join(model_path, "t5-cctgm-abs.bin"),
+    #     "t5-title": os.path.join(model_path, "t5-cctgm-title.bin"),
+    # }
     
-    transformers_model_type = "facebook/bart-base" if model_type == "bart" else "t5-base"
-    used_pretrained_models = f"{model_type}-{citing_input_type}"
+    # transformers_model_type = "facebook/bart-base" if model_type == "bart" else "t5-base"
+    # used_pretrained_models = f"{model_type}-{citing_input_type}"
 
+    # context = {
+    #     "citation_text": generate_citation_text(model_src, transformers_model_type, pretrained_models_path[used_pretrained_models],
+    #                                             num_beams=4, length_penalty=2),
+    #     "citation_intent": citation_intent,
+    # }
     context = {
-        "citation_text": generate_citation_text(model_src, transformers_model_type, pretrained_models_path[used_pretrained_models])
+        "citation_text": "test",
+        "citation_intent": citation_intent,
     }
     return render(request, 'result.html', context=context)
 

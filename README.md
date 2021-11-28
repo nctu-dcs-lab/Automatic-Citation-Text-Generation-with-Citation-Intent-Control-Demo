@@ -20,6 +20,6 @@ nohup python manage.py runserver 0.0.0.0:8081
 ```
 ### Usage
 #### Generate Citation Text
-![](https://i.imgur.com/ZMfBg5N.gif)
+![](https://github.com/BradLin0819/Automatic-Citation-Text-Generation-with-Citation-Intent-Control-Demo/blob/main/images/generate.gif)
 #### Feedback
-![](https://i.imgur.com/pWXihCP.gif)
+![](https://github.com/BradLin0819/Automatic-Citation-Text-Generation-with-Citation-Intent-Control-Demo/blob/main/images/feedback.gif)

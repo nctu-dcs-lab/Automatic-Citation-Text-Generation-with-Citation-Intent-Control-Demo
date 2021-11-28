@@ -13,6 +13,7 @@
             <h4 class="p-3">Please give us your feedback for improving our system. Thanks!</h4>
             <form class="p-3" id="feedback_form">
                 <fieldset class="form-group" form="feedback_form">
+                    <input type="hidden" name="citation_text" value="{{ citation_text }}">
                     <div class="row my-3">
                         <legend class="col-form-label col-sm-4 pt-0">Quality of the generated citation text:</legend>
                         <div class="col-sm-8">
@@ -80,13 +81,24 @@
                 </div>
             </form>
         </div>
-        
     </div>
-    
+    <script>
+        $("#feedback_form").submit(function(e) {
+            e.preventDefault();
+            alert("Thanks for your feedback!");
+            $.post({
+                url: "/feedback/",
+                data: {
+                    feedback_item: $("#feedback_form").serializeArray(),
+                    csrfmiddlewaretoken: "{{ csrf_token }}"
+                }
+            })
+        });
+    </script>
 {% endblock %}
 {% block footer %}
     <footer class="container-fluid p-5 bg-dark text-white text-center">
-    <!-- &#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 
-     - ALL RIGHTS RESERVED. -->
+    	&#169; <a href="https://dcslab.web.nctu.edu.tw/" style="text-decoration:none;">NYCU Distributed Computing System Lab</a> 
+     - ALL RIGHTS RESERVED.
     </footer>
 {% endblock %}
